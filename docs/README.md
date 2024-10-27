@@ -1,10 +1,10 @@
-3. ## Instalação
+1. ## Instalação
    
    1. Clone este repositório.
    2. Instale as dependências usando o comando:
       pip install -r backend/requirements.txt
 
-4. Configure as credenciais da API do Google no arquivo `backend/config.py`.
+2. Configure as credenciais da API do Google no arquivo `backend/config.py`.
    
    ## Execução
    
