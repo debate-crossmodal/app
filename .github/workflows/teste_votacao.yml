@@ -1,0 +1,116 @@
+name: Teste de Votação
+
+# Evento que irá disparar o workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Definindo os jobs (tarefas) para rodar em diferentes sistemas operacionais e versões de Python
+jobs:
+  test-python:
+    runs-on: ubuntu-latest
+
+    services:
+      # Simulação de um servidor para testes (se necessário)
+      google-sheets-mock:
+        image: google-sheets-mock/api:latest
+        ports:
+          - 8080:8080
+
+    steps:
+      # Passo 1: Checar o código do repositório
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      # Passo 2: Configurar o Python na versão necessária
+      - name: Configurar Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      # Passo 3: Instalar dependências do Python
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Passo 4: Rodar os testes Python (unittest)
+      - name: Rodar testes Python
+        run: |
+          python -m unittest discover -s tests -p "test_*.py"
+
+  test-javascript:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Checar o código do repositório
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      # Passo 2: Configurar Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      # Passo 3: Instalar dependências do JavaScript
+      - name: Instalar dependências
+        run: |
+          npm install
+
+      # Passo 4: Rodar testes de JavaScript
+      - name: Rodar testes JavaScript
+        run: |
+          npm test
+
+  lint-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Checar o código do repositório
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      # Passo 2: Configurar Python
+      - name: Configurar Python 3.10
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      # Passo 3: Instalar dependências
+      - name: Instalar dependências
+        run: |
+          pip install flake8
+
+      # Passo 4: Rodar linting para garantir conformidade com PEP8
+      - name: Rodar Flake8
+        run: |
+          flake8 .
+
+  lint-javascript:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Checar o código do repositório
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      # Passo 2: Configurar Node.js
+      - name: Configurar Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      # Passo 3: Instalar dependências
+      - name: Instalar ESLint
+        run: |
+          npm install eslint
+
+      # Passo 4: Rodar ESLint para garantir estilo de código
+      - name: Rodar ESLint
+        run: |
+          npx eslint .
