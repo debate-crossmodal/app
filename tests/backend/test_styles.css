@@ -1,0 +1,18 @@
+@media (max-width: 600px) {
+    /* Testa se o container ocupa 100% da largura da tela */
+    .container {
+        width: 100%; /* Espera que o container se ajuste à largura da tela em dispositivos pequenos */
+    }
+
+    /* Testa se o botão ocupa toda a largura */
+    button {
+        width: 100%; /* Espera que o botão seja responsivo e ocupe toda a largura do container */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    /* Testa se o container mantém uma largura máxima adequada */
+    .container {
+        max-width: 80%; /* Espera que o container não exceda 80% da largura em dispositivos de tamanho médio */
+    }
+}

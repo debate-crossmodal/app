@@ -1,0 +1,30 @@
+/* Estilos para dispositivos menores que 600px */
+@media (max-width: 600px) {
+    body {
+        padding: 10px; /* Reduz o padding em telas pequenas */
+    }
+
+    .container {
+        padding: 15px; /* Ajusta o padding do container */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Reduz o tamanho da fonte do título */
+    }
+
+    select, button {
+        padding: 8px; /* Ajusta o padding dos elementos de formulário */
+        font-size: 1em; /* Garante que o texto seja legível */
+    }
+}
+
+/* Estilos para dispositivos entre 601px e 1024px */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        max-width: 80%; /* Limita a largura do container para telas médias */
+    }
+
+    h1 {
+        font-size: 2em; /* Aumenta o tamanho da fonte do título */
+    }
+}

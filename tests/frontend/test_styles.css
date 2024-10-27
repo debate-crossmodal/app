@@ -1,0 +1,65 @@
+/* Reset básico para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;  /* Cor de fundo escura */
+    color: #fff;  /* Texto branco para contraste */
+    padding: 20px;
+}
+
+/* Estilo dos títulos */
+h1, h2, h3 {
+    color: #00ff00;  /* Verde brilhante para os títulos */
+}
+
+/* Estilo do formulário */
+form {
+    background-color: #444;  /* Fundo do formulário mais claro que o corpo */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilo das labels */
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Estilo dos campos de seleção */
+select, input[type="text"], input[type="email"] {
+    width: 100%;  /* Campos ocupam toda a largura do formulário */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #00ff00;  /* Bordas verdes */
+    border-radius: 5px;
+    background-color: #555;  /* Fundo dos campos de entrada */
+    color: #fff;  /* Texto branco nos campos */
+}
+
+/* Estilo do botão */
+button {
+    background-color: #00ff00;  /* Botão verde */
+    color: #000;  /* Texto preto no botão */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Efeito hover no botão */
+button:hover {
+    background-color: #00cc00;  /* Verde mais escuro ao passar o mouse */
+}
+
+/* Mensagens de feedback */
+#feedbackMessage {
+    margin-top: 20px;
+    font-weight: bold;
+}
